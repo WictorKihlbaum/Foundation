@@ -1,0 +1,51 @@
+page-home {
+
+  #home-content {
+    background-color: #40C4FF;
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center 75%;
+  }
+
+  #camera-fab, #library-fab {
+    button {
+      background-color: white;
+      color: #00B0FF;
+    }
+  }
+
+  #slider {
+    height: 70vh;
+    color: white;
+
+    h2 {
+      font-family: Ubuntu-Bold;
+    }
+
+    p {
+      font-family: OpenSans-Regular;
+      font-size: 5vw;
+    }
+
+    .slider-img-div {
+      margin: 0 auto;
+      width: 30vw;
+      height: 30vw;
+      border-radius: 50%;
+      background-size: 60%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: white;
+    }
+    #slider-img-1 {
+
+    }
+    #slider-img-2 {
+      background-image: url("../assets/img/sign.png");
+    }
+    #slider-img-3 {
+      background-image: url("../assets/img/tip.png");
+    }
+  }
+
+}

@@ -1,0 +1,44 @@
+<ion-header no-border>
+
+  <ion-navbar color="main">
+    <ion-title>Result</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <!-- Spinner -->
+  <ion-grid id="loader-grid" *ngIf="!validResults && showSpinner">
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-spinner name="bubbles" class="loader-spinner"></ion-spinner>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Results -->
+  <div *ngIf="validResults && !showSpinner">
+
+    <ion-list id="result-list">
+      <ion-item *ngFor="let result of results" class="result-item">
+
+        <span class="label">
+          {{ result.description }}
+        </span>
+
+        <span item-end class="score">
+          {{ handleScore(result.score) }} %
+        </span>
+
+      </ion-item>
+    </ion-list>
+
+  </div>
+
+  <!-- No results -->
+  <h1 *ngIf="!validResults && !showSpinner">
+    The image does not contain any mushroom
+  </h1>
+
+</ion-content>
