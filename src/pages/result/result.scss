@@ -1,21 +1,5 @@
 page-result {
 
-  .progressbar {
-    height: 6px;
-    background-color: #32db64;
-    border-radius: 2px;
-    margin-top: 4px;
-    width: 0%;
-  }
-
-  #result-list {
-    margin-top: 16px;
-  }
-
-  .label:first-letter {
-    text-transform: uppercase;
-  }
-
   #loader-grid {
     height: 100%;
     ion-row {
@@ -29,6 +13,24 @@ page-result {
     .loader-spinner * {
       fill: #488aff;
       stroke: #488aff;
+    }
+  }
+
+  #result-grid {
+    height: 100%;
+    text-align: center;
+
+    ion-row {
+      height: 100%;
+    }
+
+    #shade-circle {
+      margin: 0 auto;
+      border-radius: 50%;
+      //background-color: #D5BCA9;
+      background-color: lightgreen;
+      width: 40vw;
+      height: 40vw;
     }
   }
 

@@ -113,17 +113,18 @@ var ntc = {
     },
 
     names: [
+        ["E8C3A9", "COOL BEIGE"],
+        ["E1B99B", "SAND BEIGE"],
+        ["D6AB88", "OLIVE BEIGE"],
+        ["EED6BC", "LIGHT BEIGE"],
+        ["F8D2AB", "BLOND BEIGE"],
+
         ["DEBAA5", "38 PORCELAIN ROSE"],
         ["E1C1A7", "39 IVORY BEIGE"],
         ["D8B195", "41 Sand Beige"],
         ["D6BDAB", "44 WARM BEIGE"],
         ["D5BCA9", "45 DARK BEIGE"],
-        ["E8C3A9", "COOL BEIGE"],
-        ["E1B99B", "SAND BEIGE"],
-        ["D6AB88", "OLIVE BEIGE"],
-        ["EED6BC", "LIGHT BEIGE"],
 
-        ["F8D2AB", "BLOND BEIGE"],
         ["F5D8B8", "10 LIGHT BEIGE"],
         ["E6B187", "12 CLASSIC BEIGE"],
         ["CA9667", "16 BEIGE ALMOND"],

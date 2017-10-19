@@ -12,14 +12,14 @@ declare const ntc: any;
 export class ResultPage implements OnInit {
 
   private showSpinner: boolean = true;
+  private colorMatch: any;
 
 
-  constructor(
-    private navParams: NavParams,
-    private googleServiceProvider: GoogleServiceProvider) {}
+  constructor(private navParams: NavParams, private googleServiceProvider: GoogleServiceProvider) {}
 
   ngOnInit() {
     try {
+
       const imageData: any = this.navParams.get('imageData');
 
       this.googleServiceProvider.postImageData(imageData).then(response => {
@@ -30,14 +30,15 @@ export class ResultPage implements OnInit {
         const blue: any = dominantColor['blue'];
 
         const rgbHex = require('rgb-hex');
-
         const hex: any = rgbHex(red, green, blue);
-        const match = ntc.name('#' + hex);
-        console.log(match);
+        this.colorMatch = ntc.name('#' + hex);
+        console.log(this.colorMatch);
       });
+
+
+      //this.colorMatch = ["#D5BCA9", "45 DARK BEIGE", false]; // Hardcoded
     }
     catch (error) {
-      this.showSpinner = false;
       console.log('ERROR: ' + error);
     }
   }

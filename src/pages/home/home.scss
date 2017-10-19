@@ -1,10 +1,11 @@
 page-home {
 
   #home-content {
-    background-color: #40C4FF;
-    background-size: 50%;
+    /*background: url("../assets/img/face.png"), #40C4FF;
+    background-size: 50vw;
     background-repeat: no-repeat;
-    background-position: center 75%;
+    background-position: center 80%;*/
+    background-color: #40C4FF;
   }
 
   #camera-fab, #library-fab {
@@ -38,13 +39,13 @@ page-home {
       background-color: white;
     }
     #slider-img-1 {
-
+      // Empty for now
     }
     #slider-img-2 {
-      background-image: url("../assets/img/sign.png");
+      background-image: url("../assets/img/tip.png");
     }
     #slider-img-3 {
-      background-image: url("../assets/img/tip.png");
+      background-image: url("../assets/img/sign.png");
     }
   }
 

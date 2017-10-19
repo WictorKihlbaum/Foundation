@@ -13,6 +13,7 @@ export class HomePage {
 
   onTakePhoto(source: number) {
 
+
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.DATA_URL,
@@ -20,7 +21,8 @@ export class HomePage {
       mediaType: this.camera.MediaType.PICTURE,
       targetWidth: 480,
       targetHeight: 640,
-      sourceType: source
+      sourceType: source,
+      allowEdit: true
     };
 
     this.camera.getPicture(options).then(imageData => {
@@ -29,7 +31,8 @@ export class HomePage {
       console.log(err);
     });
 
-    //this.navCtrl.push(ResultPage, { imageData: 'hej' });
+
+    //this.navCtrl.push(ResultPage, { imageData: 'test' });
   }
 
 }

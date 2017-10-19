@@ -9,7 +9,7 @@
 <ion-content padding>
 
   <!-- Spinner -->
-  <ion-grid id="loader-grid" *ngIf="!validResults && showSpinner">
+  <ion-grid id="loader-grid" *ngIf="!colorMatch">
     <ion-row align-items-center>
       <ion-col>
         <ion-spinner name="bubbles" class="loader-spinner"></ion-spinner>
@@ -18,27 +18,22 @@
   </ion-grid>
 
   <!-- Results -->
-  <div *ngIf="validResults && !showSpinner">
+  <ion-grid *ngIf="colorMatch" id="result-grid">
+    <ion-row align-items-center>
+      <ion-col>
 
-    <ion-list id="result-list">
-      <ion-item *ngFor="let result of results" class="result-item">
+        <div id="shade-circle" [ngStyle]="{'backgroundColor': colorMatch[0]}"></div>
 
-        <span class="label">
-          {{ result.description }}
-        </span>
+        <h2>{{ colorMatch[1] }}</h2>
 
-        <span item-end class="score">
-          {{ handleScore(result.score) }} %
-        </span>
+        <!-- Visit IsaDora product page -->
+        <button ion-button round icon-left>
+          <ion-icon name="md-open"></ion-icon>
+          Visit product page
+        </button>
 
-      </ion-item>
-    </ion-list>
-
-  </div>
-
-  <!-- No results -->
-  <h1 *ngIf="!validResults && !showSpinner">
-    The image does not contain any mushroom
-  </h1>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
