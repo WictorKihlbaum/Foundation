@@ -14,3 +14,18 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+/* Open Sans */
+@font-face {
+  font-family: OpenSans-Regular;
+  src: url("../assets/fonts/OpenSans-Regular.ttf");
+}
+/* Ubuntu-Bold */
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url("../assets/fonts/Ubuntu-Bold.ttf");
+}
+
+ion-content {
+  background: linear-gradient(45deg, #E040FB 0%, #FF4081 100%);
+}

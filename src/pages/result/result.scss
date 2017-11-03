@@ -11,8 +11,8 @@ page-result {
     }
 
     .loader-spinner * {
-      fill: #488aff;
-      stroke: #488aff;
+      fill: white;
+      stroke: white;
     }
   }
 
@@ -27,10 +27,18 @@ page-result {
     #shade-circle {
       margin: 0 auto;
       border-radius: 50%;
-      //background-color: #D5BCA9;
-      background-color: lightgreen;
+      border: 22px solid white;
+      background-color: white;
       width: 40vw;
       height: 40vw;
+    }
+
+    #product-name {
+      color: white;
+    }
+
+    #visit-product-button {
+      background: linear-gradient(45deg, #FF6D00 0%, #FFAB40 100%);
     }
   }
 

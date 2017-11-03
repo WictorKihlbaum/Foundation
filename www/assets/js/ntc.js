@@ -113,28 +113,28 @@ var ntc = {
     },
 
     names: [
-        ["E8C3A9", "COOL BEIGE"],
-        ["E1B99B", "SAND BEIGE"],
-        ["D6AB88", "OLIVE BEIGE"],
-        ["EED6BC", "LIGHT BEIGE"],
-        ["F8D2AB", "BLOND BEIGE"],
+        ["E8C3A9", "COOL BEIGE", "https://www.google.com"],
+        ["E1B99B", "SAND BEIGE", "https://www.google.com"],
+        ["D6AB88", "OLIVE BEIGE", "https://www.google.com"],
+        ["EED6BC", "LIGHT BEIGE", "https://www.google.com"],
+        ["F8D2AB", "BLOND BEIGE", "https://www.google.com"],
 
-        ["DEBAA5", "38 PORCELAIN ROSE"],
-        ["E1C1A7", "39 IVORY BEIGE"],
-        ["D8B195", "41 Sand Beige"],
-        ["D6BDAB", "44 WARM BEIGE"],
-        ["D5BCA9", "45 DARK BEIGE"],
+        ["DEBAA5", "38 PORCELAIN ROSE", "https://www.google.com"],
+        ["E1C1A7", "39 IVORY BEIGE", "https://www.google.com"],
+        ["D8B195", "41 Sand Beige", "https://www.google.com"],
+        ["D6BDAB", "44 WARM BEIGE", "https://www.google.com"],
+        ["D5BCA9", "45 DARK BEIGE", "https://www.google.com"],
 
-        ["F5D8B8", "10 LIGHT BEIGE"],
-        ["E6B187", "12 CLASSIC BEIGE"],
-        ["CA9667", "16 BEIGE ALMOND"],
-        ["C6865F", "20 BRONZER"],
+        ["F5D8B8", "10 LIGHT BEIGE", "https://www.google.com"],
+        ["E6B187", "12 CLASSIC BEIGE", "https://www.google.com"],
+        ["CA9667", "16 BEIGE ALMOND", "https://www.google.com"],
+        ["C6865F", "20 BRONZER", "https://www.google.com"],
 
-        ["EFC7A7", "60 LIGHT COVER"],
-        ["E7B695", "62 NUDE COVER"],
-        ["E7B48A", "64 CLASSIC COVER"],
-        ["D6A07E", "66 ALMOND COVER"],
-        ["C89774", "68 HONEY COVER"]
+        ["EFC7A7", "60 LIGHT COVER", "https://www.google.com"],
+        ["E7B695", "62 NUDE COVER", "https://www.google.com"],
+        ["E7B48A", "64 CLASSIC COVER", "https://www.google.com"],
+        ["D6A07E", "66 ALMOND COVER", "https://www.google.com"],
+        ["C89774", "68 HONEY COVER", "https://www.google.com"]
     ]
 
 };

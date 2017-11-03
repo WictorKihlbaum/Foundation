@@ -1,9 +1,7 @@
 <ion-header no-border>
-
   <ion-navbar color="main">
     <ion-title>Result</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 <ion-content padding>
@@ -24,10 +22,10 @@
 
         <div id="shade-circle" [ngStyle]="{'backgroundColor': colorMatch[0]}"></div>
 
-        <h2>{{ colorMatch[1] }}</h2>
+        <h2 id="product-name">{{ colorMatch[1] }}</h2>
 
         <!-- Visit IsaDora product page -->
-        <button ion-button round icon-left>
+        <button ion-button round icon-left id="visit-product-button" (click)="onVisitProductPage()">
           <ion-icon name="md-open"></ion-icon>
           Visit product page
         </button>

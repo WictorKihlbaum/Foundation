@@ -84,7 +84,7 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/wictorkihlbaum/Documents/FoundationNew/src/pages/home/home.html"*/'<ion-content no-bounce id="home-content">\n\n  <ion-slides pager loop autoplay="5000" padding id="slider">\n\n    <ion-slide padding>\n      <div class="slider-img-div" id="slider-img-1"></div>\n      <h2>Welcome</h2>\n      <p>\n        Press the camera button below to take a photo of your skin\n      </p>\n    </ion-slide>\n\n    <ion-slide padding>\n      <div class="slider-img-div" id="slider-img-2"></div>\n      <h2>Tip</h2>\n      <p>\n        Make sure you have good lightning when taking the photo\n      </p>\n    </ion-slide>\n\n    <ion-slide padding>\n      <div class="slider-img-div" id="slider-img-3"></div>\n      <h2>Observe</h2>\n      This app needs an internet connection to work properly\n    </ion-slide>\n\n  </ion-slides>\n\n  <!-- Take photo button -->\n  <ion-fab center bottom id="camera-fab">\n    <button ion-fab (click)="onTakePhoto(1)"> <!-- 1 = camera (Take photo) -->\n      <ion-icon name="md-camera"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-fab left bottom id="library-fab">\n    <button ion-fab mini (click)="onTakePhoto(0)"> <!-- 0 = Photo library/camera roll -->\n      <ion-icon name="md-images"></ion-icon>\n    </button>\n  </ion-fab>\n\n</ion-content>\n'/*ion-inline-end:"/Users/wictorkihlbaum/Documents/FoundationNew/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/wictorkihlbaum/Documents/Foundation/src/pages/home/home.html"*/'<ion-content no-bounce id="home-content">\n\n  <ion-slides pager loop autoplay="5000" padding id="slider" class="swiper-pagination-white">\n\n    <ion-slide padding>\n      <div class="slider-img-div" id="slider-img-1"></div>\n      <h2>Welcome</h2>\n      <p>\n        Press the camera button below to take a photo of your skin\n      </p>\n    </ion-slide>\n\n    <ion-slide padding>\n      <div class="slider-img-div" id="slider-img-2"></div>\n      <h2>Tip</h2>\n      <p>\n        Make sure you have good lightning when taking the photo\n      </p>\n    </ion-slide>\n\n    <ion-slide padding>\n      <div class="slider-img-div" id="slider-img-3"></div>\n      <h2>Observe</h2>\n      This app needs an internet connection to work properly\n    </ion-slide>\n\n  </ion-slides>\n\n  <!-- Take photo button -->\n  <ion-fab center bottom id="camera-fab">\n    <button ion-fab (click)="onTakePhoto(1)"> <!-- 1 = camera (Take photo) -->\n      <ion-icon name="md-camera"></ion-icon>\n    </button>\n  </ion-fab>\n\n  <ion-fab left bottom id="library-fab">\n    <button ion-fab mini (click)="onTakePhoto(0)"> <!-- 0 = Photo library/camera roll -->\n      <ion-icon name="md-images"></ion-icon>\n    </button>\n  </ion-fab>\n\n</ion-content>\n'/*ion-inline-end:"/Users/wictorkihlbaum/Documents/Foundation/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_camera__["a" /* Camera */]])
 ], HomePage);
@@ -101,6 +101,7 @@ HomePage = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(40);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_google_service__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__ = __webpack_require__(267);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -113,10 +114,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ResultPage = (function () {
-    function ResultPage(navParams, googleServiceProvider) {
+    function ResultPage(navParams, googleServiceProvider, iab) {
         this.navParams = navParams;
         this.googleServiceProvider = googleServiceProvider;
+        this.iab = iab;
         this.showSpinner = true;
     }
     ResultPage.prototype.ngOnInit = function () {
@@ -125,32 +128,31 @@ var ResultPage = (function () {
             var imageData = this.navParams.get('imageData');
             this.googleServiceProvider.postImageData(imageData).then(function (response) {
                 var dominantColor = response['responses'][0]['imagePropertiesAnnotation']['dominantColors']['colors'][0]['color'];
-                console.log(dominantColor);
                 var red = dominantColor['red'];
                 var green = dominantColor['green'];
                 var blue = dominantColor['blue'];
-                var rgbHex = __webpack_require__(267);
+                var rgbHex = __webpack_require__(268);
                 var hex = rgbHex(red, green, blue);
                 _this.colorMatch = ntc.name('#' + hex);
-                console.log(_this.colorMatch);
             });
-            //this.colorMatch = ["#D5BCA9", "45 DARK BEIGE", false]; // Hardcoded
         }
         catch (error) {
             console.log('ERROR: ' + error);
         }
     };
+    ResultPage.prototype.onVisitProductPage = function () {
+        this.iab.create(this.colorMatch[2], '_system');
+    };
     return ResultPage;
 }());
 ResultPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-result',template:/*ion-inline-start:"/Users/wictorkihlbaum/Documents/FoundationNew/src/pages/result/result.html"*/'<ion-header no-border>\n\n  <ion-navbar color="main">\n    <ion-title>Result</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content padding>\n\n  <!-- Spinner -->\n  <ion-grid id="loader-grid" *ngIf="!colorMatch">\n    <ion-row align-items-center>\n      <ion-col>\n        <ion-spinner name="bubbles" class="loader-spinner"></ion-spinner>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <!-- Results -->\n  <ion-grid *ngIf="colorMatch" id="result-grid">\n    <ion-row align-items-center>\n      <ion-col>\n\n        <div id="shade-circle" [ngStyle]="{\'backgroundColor\': colorMatch[0]}"></div>\n\n        <h2>{{ colorMatch[1] }}</h2>\n\n        <!-- Visit IsaDora product page -->\n        <button ion-button round icon-left>\n          <ion-icon name="md-open"></ion-icon>\n          Visit product page\n        </button>\n\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/Users/wictorkihlbaum/Documents/FoundationNew/src/pages/result/result.html"*/,
+        selector: 'page-result',template:/*ion-inline-start:"/Users/wictorkihlbaum/Documents/Foundation/src/pages/result/result.html"*/'<ion-header no-border>\n  <ion-navbar color="main">\n    <ion-title>Result</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <!-- Spinner -->\n  <ion-grid id="loader-grid" *ngIf="!colorMatch">\n    <ion-row align-items-center>\n      <ion-col>\n        <ion-spinner name="bubbles" class="loader-spinner"></ion-spinner>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n  <!-- Results -->\n  <ion-grid *ngIf="colorMatch" id="result-grid">\n    <ion-row align-items-center>\n      <ion-col>\n\n        <div id="shade-circle" [ngStyle]="{\'backgroundColor\': colorMatch[0]}"></div>\n\n        <h2 id="product-name">{{ colorMatch[1] }}</h2>\n\n        <!-- Visit IsaDora product page -->\n        <button ion-button round icon-left id="visit-product-button" (click)="onVisitProductPage()">\n          <ion-icon name="md-open"></ion-icon>\n          Visit product page\n        </button>\n\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n\n</ion-content>\n'/*ion-inline-end:"/Users/wictorkihlbaum/Documents/Foundation/src/pages/result/result.html"*/,
         providers: [__WEBPACK_IMPORTED_MODULE_2__providers_google_service__["a" /* GoogleServiceProvider */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_google_service__["a" /* GoogleServiceProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_google_service__["a" /* GoogleServiceProvider */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_google_service__["a" /* GoogleServiceProvider */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_in_app_browser__["a" /* InAppBrowser */]])
 ], ResultPage);
 
-var _a, _b;
 //# sourceMappingURL=result.js.map
 
 /***/ }),
@@ -336,7 +338,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/wictorkihlbaum/Documents/FoundationNew/src/app/app.html"*/'<ion-nav [root]="rootPage" swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/wictorkihlbaum/Documents/FoundationNew/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/wictorkihlbaum/Documents/Foundation/src/app/app.html"*/'<ion-nav [root]="rootPage" swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/Users/wictorkihlbaum/Documents/Foundation/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
