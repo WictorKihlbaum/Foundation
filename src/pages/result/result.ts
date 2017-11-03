@@ -3,6 +3,7 @@ import { NavParams } from 'ionic-angular';
 import { GoogleServiceProvider } from "../../providers/google-service";
 
 declare const ntc: any;
+declare const require: any;
 
 @Component({
   selector: 'page-result',

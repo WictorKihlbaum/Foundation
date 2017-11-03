@@ -6,10 +6,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { Camera } from "@ionic-native/camera";
-import { HttpModule } from "@angular/http";
 import { ResultPage } from "../pages/result/result";
+
+import { HttpModule } from "@angular/http";
 import { GoogleServiceProvider } from "../providers/google-service";
+import { Camera } from "@ionic-native/camera";
 
 @NgModule({
   declarations: [
@@ -31,9 +32,9 @@ import { GoogleServiceProvider } from "../providers/google-service";
   providers: [
     StatusBar,
     SplashScreen,
-    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    GoogleServiceProvider
+    GoogleServiceProvider,
+    Camera
   ]
 })
 export class AppModule {}
